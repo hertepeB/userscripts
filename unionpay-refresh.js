@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         银联刷新
 // @namespace    https://greasyfork.org/en/users/22079-hntee
-// @version      0.5
+// @version      0.6
 // @description  银联刷新按钮
 // @author       You
 // @match        https://cashier.95516.com/b2c/showCard.action?*
@@ -35,6 +35,8 @@
         var pagePrice = $('#order_upoint > div.order_u_pay.dn > span').text();
         $('#current_price').text(pagePrice);
         $("#current_price").css({"font-size": "1.4em", "color": "red"});
+        var expected_price = parseInt(pagePrice)-100+".00";
+        $('#expect_price').val(expected_price);
         return pagePrice;
     }
 
